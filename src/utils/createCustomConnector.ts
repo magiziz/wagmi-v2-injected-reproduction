@@ -1,5 +1,6 @@
 import { InjectedParameters, injected } from "wagmi/connectors";
 import { createConnector } from "wagmi";
+import { isMetaMask } from "./isMetaMask";
 
 export const createCustomConnector = (
   injectedParams: InjectedParameters,
@@ -14,12 +15,22 @@ export const createCustomConnector = (
 // Custom connector metadata "id" and "name"
 export const customMetaDataConnectors = [
   {
+    id: "metamask",
+    name: "MetaMask Wallet",
+    provider: window.ethereum.providers?.find(isMetaMask),
+  },
+  {
+    id: "rainbow",
+    name: "Rainbow Wallet",
+    provider: window.ethereum,
+  },
+  {
     id: "enkrypt",
     name: "Enkrypt Wallet",
     provider: window.ethereum,
   },
   {
-    id: "bitsky",
+    id: "bitski",
     name: "Bitski Wallet",
     provider: window.ethereum,
   },

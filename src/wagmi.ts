@@ -23,6 +23,7 @@ export const config = createConfig({
       )
     ),
   ],
+  multiInjectedProviderDiscovery: false,
   ssr: true,
   transports: {
     [mainnet.id]: http(),
