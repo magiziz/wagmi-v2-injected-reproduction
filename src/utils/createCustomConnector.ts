@@ -17,7 +17,11 @@ export const customMetaDataConnectors = [
   {
     id: "metamask",
     name: "MetaMask Wallet",
-    provider: window.ethereum.providers?.find(isMetaMask),
+    provider:
+      typeof window.ethereum !== "undefined" &&
+      typeof window.ethereum?.providers !== "undefined"
+        ? window.ethereum.providers.find(isMetaMask)
+        : undefined,
   },
   {
     id: "rainbow",
